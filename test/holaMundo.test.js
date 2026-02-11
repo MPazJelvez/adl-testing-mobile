@@ -36,7 +36,7 @@ afterEach(() => {
 
 });
 
-describe("Verificando conexión", () => {
+describe("Validando calculos", () => {
     it("Seleccionar un elmento", async () => {
         const titulo = await driver.$('~Título: Calculadora de IMC');
         expect(await titulo.isDisplayed()).toBe(true);
@@ -80,7 +80,7 @@ describe("Verificando conexión", () => {
         expect(await alertTitle.getText()).toBe('Entrada Inválida');
         expect(await message.getText()).toBe('Por favor, introduce un peso y altura válidos.');
 
-        okButton.click();
+        await okButton.click();
     });
 
     it("Calcular peso sin datos completos", async () => {
@@ -101,6 +101,6 @@ describe("Verificando conexión", () => {
 
         expect(await alertTitle.getText()).toBe('Entrada Inválida');
         expect(await message.getText()).toBe('Por favor, introduce un peso y altura válidos.');
-        okButton.click();
+        await okButton.click();
     });
 });
