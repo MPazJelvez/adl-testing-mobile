@@ -50,28 +50,17 @@ describe("Validando calculos", () => {
 
     });
 
-    /*
     it('Cálculo con valores no válidos', async () => {
-
         await objHomePage.calcularIMC('WW', '180');
-
-        const bmiResult = await driver.$('//android.widget.TextView[@content-desc="Resultado del IMC: 25.62"]');
-        const bmiCategory = await driver.$('//android.widget.TextView[@content-desc="Categoría del IMC: Sobrepeso"]');
-
-        expect(await bmiResult.isDisplayed()).toBe(true);
-        expect(await bmiCategory.isDisplayed()).toBe(true);
-
+        expect(await objHomePage.obtenertituloAlert()).toBe('Entrada Inválida');
+        expect(await objHomePage.obtenermensajeAlert()).toBe('Por favor, introduce un peso y altura válidos.');
+        await objHomePage.obtenerbotonOk();
     });
-
     it('Cálculo con valores vacíos', async () => {
-
-        await objHomePage.calcularIMC('', '');
-
-        const bmiResult = await driver.$('//android.widget.TextView[@content-desc="Resultado del IMC: 25.62"]');
-        const bmiCategory = await driver.$('//android.widget.TextView[@content-desc="Categoría del IMC: Sobrepeso"]');
-
-        expect(await bmiResult.isDisplayed()).toBe(true);
-        expect(await bmiCategory.isDisplayed()).toBe(true);
+        await objHomePage.calcularIMC(' ', ' ');
+        expect(await objHomePage.obtenertituloAlert()).toBe('Entrada Inválida');
+        expect(await objHomePage.obtenermensajeAlert()).toBe('Por favor, introduce un peso y altura válidos.');
+        await objHomePage.obtenerbotonOk();
     });
-    */
+
 });

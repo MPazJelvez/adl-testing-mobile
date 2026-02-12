@@ -42,6 +42,16 @@ class HomePage {
         await this.llenarAltura(valorAltura);
         await this.clickBoton();
     }
+
+    async obtenertituloAlert() {
+        return await this.driver.$(this.elements.tituloAlert).getText();
+    }
+    async obtenermensajeAlert() {
+        return await this.driver.$(this.elements.mensajeAlert).getText();
+    }
+    async obtenerbotonOk() {
+        return await this.driver.$(this.elements.botonOk).click();
+    }
 }
 
 module.exports = HomePage;
